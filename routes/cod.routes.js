@@ -5,7 +5,7 @@ const API = require('call-of-duty-api')({ platform: 'battle' });
 
 // Login
 codRoute.route('/login').post((req, res, next) => {
-  API.login(req.body.email, req.body.password)
+  API.loginWithSSO(req.body.sso)
     .then((data) => {
       res.json(data);
     })
