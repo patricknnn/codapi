@@ -9,7 +9,7 @@
   "author": "bennie",
   "license": "ISC",
   "dependencies": {
-    "call-of-duty-api": "^2.1.2",
+    "call-of-duty-api": "^2.2.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",

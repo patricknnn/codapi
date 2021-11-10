@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const codRoute = express.Router();
 const API = require('call-of-duty-api')({ platform: 'battle' });
 
@@ -12,6 +11,45 @@ codRoute.route('/login').post((req, res, next) => {
     .catch((err) => {
       res.json(err);
     });
+});
+
+// Vanguard
+codRoute.route('/vg/:type/:gamertag/:platform').get((req, res) => {
+  if (req.params.type == 'mp') {
+    API.VGmp(req.params.gamertag, req.params.platform)
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  } else if (req.params.type == 'combatmp') {
+    API.VGcombatmp(req.params.gamertag, req.params.platform)
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  } else if (req.params.type == 'analysis') {
+    API.VGAnalysis(req.params.gamertag, req.params.platform)
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  } else if (req.params.type == 'loot') {
+    API.VGloot(req.params.gamertag, req.params.platform)
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  } else {
+    res.json('Bad request');
+  }
 });
 
 // Get lifetime stats
